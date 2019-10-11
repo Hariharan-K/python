@@ -1,0 +1,21 @@
+import numpy as np
+from timeit import default_timer as timer
+
+def a_to_the_power_b(a, b, c):
+    for i in range(a.size):
+         c[i] = a[i] ** b[i]
+
+def main():
+    size = 1000000
+
+    a = b = np.array(np.random.sample(size), dtype=np.float32)
+    c = np.zeros(size, dtype=np.float32)
+
+    start_time = timer()
+    a_to_the_power_b(a, b, c)
+    elapsed_time = timer() - start_time
+
+    print(elapsed_time)
+
+if __name__ == '__main__':
+    main()
